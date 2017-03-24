@@ -1,0 +1,6 @@
+#!/bin/bash
+limite=2
+ceros=2
+cifras=99
+temp=0.5
+solutemp=5
