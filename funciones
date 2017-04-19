@@ -3,60 +3,60 @@
 #Primero definimos las funciones básicas del programa
 #La función suma es el motor: realiza la suma tomando los datos de la configuración del usuario
 function suma(){
-source confi
-printf "\n\n"
+    source confi
+    printf "\n\n"
 
-        res=0
-	cuenta=0
-while [[ $cuenta -lt $limite ]]; do
-sumando=$(($RANDOM%$cifras))
-mostrar
-res=$(($res+$sumando))
-cuenta=$(($cuenta+1))
-done
+    res=0
+    cuenta=0
+    while [[ $cuenta -lt $limite ]]; do
+	sumando=$(($RANDOM%$cifras))
+	mostrar
+	res=$(($res+$sumando))
+	cuenta=$(($cuenta+1))
+    done
 }
 #La función evaluación recoge el resultado del usuario y evalúa si es correcto
 function evaluacion (){
-read -t $solutemp intento
-if [[ $intento = $res ]]; then
+    read -t $solutemp intento
+    if [[ $intento = $res ]]; then
 
-nota=$(($nota+10))
+	nota=$(($nota+10))
 
 
 
-echo ¡Correcto! 
-else
-echo La respuesta es $res
-fi
+	echo ¡Correcto! 
+    else
+	echo La respuesta es $res
+    fi
 }
 #la función despedida pregunta si se desea seguir jugando o salir del programa.
 function despedida (){
-echo ""
-echo ""
-echo "¿Quiere seguir jugando?"
-echo "Sí [s] No [n] Menú [m]"
-read seguir
+    echo ""
+    echo ""
+    echo "¿Quiere seguir jugando?"
+    echo "Sí [s] No [n] Menú [m]"
+    read seguir
 
-case $seguir in
+    case $seguir in
 
-    s)
+	s)
 
-	anzansuma
-	;;
-    n)
-    echo Ha sido un placer. ¡Hasta la próxima!
-    exit 
-    ;;
+	    anzansuma
+	    ;;
+	n)
+	    echo Ha sido un placer. ¡Hasta la próxima!
+	    exit 
+	    ;;
 
 
-    m)
-bash inicio.sh
-	;;
+	m)
+	    bash inicio.sh
+	    ;;
 
-    *) echo "No sé si he entendido bien"
-	despedida	
-	;;
-esac
+	*) echo "No sé si he entendido bien"
+	   despedida	
+	   ;;
+    esac
 
 
 }
@@ -64,9 +64,9 @@ esac
 #Ahora definimos las funciones compuestas
 
 function anzansuma (){
-suma
-solucion
-evaluacion
-despedida
+    suma
+    solucion
+    evaluacion
+    despedida
 
 }
